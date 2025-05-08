@@ -1,6 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <OutputType>Library</OutputType>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <OutputType>WinExe</OutputType>
+        <UseWindowsForms>true</UseWindowsForms>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\styles\*.json">
+            <Link>styles\%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+      <PackageReference Include="GMap.NET.WindowsForms" Version="1.7.5" />
+      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\VectorTileRenderer\VectorTileRenderer.csproj" />
+    </ItemGroup>
 </Project>
