@@ -495,16 +495,15 @@ namespace VectorTileRenderer
             int i = 0;
             foreach (var line in allLines)
             {
-                var bytes = Encoding.UTF32.GetBytes(line);
                 float lineOffset = (float)(i * style.Paint.TextSize) - ((float)(allLines.Length) * (float)style.Paint.TextSize) / 2 + (float)style.Paint.TextSize;
                 var position = new SKPoint((float)geometry.X + (float)(style.Paint.TextOffset.X * style.Paint.TextSize), (float)geometry.Y + (float)(style.Paint.TextOffset.Y * style.Paint.TextSize) + lineOffset);
 
                 if (style.Paint.TextStrokeWidth != 0)
                 {
-                    canvas.DrawText(bytes, position, strokePaint);
+                    canvas.DrawText(line, position, strokePaint);
                 }
 
-                canvas.DrawText(bytes, position, paint);
+                canvas.DrawText(line, position, paint);
                 i++;
             }
 
@@ -639,14 +638,13 @@ namespace VectorTileRenderer
 
 
             var offset = new SKPoint((float)style.Paint.TextOffset.X, (float)style.Paint.TextOffset.Y);
-            var bytes = Encoding.UTF32.GetBytes(text);
             if (style.Paint.TextStrokeWidth != 0)
             {
                 // TODO implement this func custom way...
-                canvas.DrawTextOnPath(bytes, path, offset, getTextStrokePaint(style));
+                canvas.DrawTextOnPath(text, path, offset, getTextStrokePaint(style));
             }
 
-            canvas.DrawTextOnPath(bytes, path, offset, getTextPaint(style));
+            canvas.DrawTextOnPath(text, path, offset, getTextPaint(style));
 
 
             //canvas.DrawText(Encoding.UTF32.GetBytes(bending.ToString("F")), new SKPoint((float)left + 10, (float)top + 10), getTextStrokePaint(style));

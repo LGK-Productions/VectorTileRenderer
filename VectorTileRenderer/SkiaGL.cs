@@ -104,7 +104,7 @@ namespace VectorTileRenderer
         }
 
 
-        public static GRBackendRenderTargetDesc CreateRenderTarget()
+        /*public static GRBackendRenderTargetDesc CreateRenderTarget()
         {
             int framebuffer, stencil, samples;
             Gles.glGetIntegerv(Gles.GL_FRAMEBUFFER_BINDING, out framebuffer);
@@ -124,6 +124,6 @@ namespace VectorTileRenderer
                 StencilBits = stencil,
                 RenderTargetHandle = (IntPtr)framebuffer,
             };
-        }
+        }*/
     }
 }
